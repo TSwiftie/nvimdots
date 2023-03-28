@@ -15,5 +15,11 @@ M.lspsaga = {
   },
 }
 
+M.undotree = {
+  n = {
+    ["<leader>ud"] = { "<cmd>UndotreeToggle<CR>", "show undotree", opts = { silent = true, noremap = true }},
+  }
+}
+
 -- more keybinds!
 return M

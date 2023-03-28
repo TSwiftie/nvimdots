@@ -110,6 +110,9 @@ local plugins = {
       vim.cmd [[nmap k <Plug>(accelerated_jk_gk)zz]]
     end,
   },
-
+  {
+    "mbbill/undotree",
+    lazy = false,
+  }
 }
 return plugins
