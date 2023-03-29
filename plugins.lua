@@ -40,24 +40,13 @@ local plugins = {
 
   -- Install a plugin
   {
-    "max397574/better-escape.nvim",
-    event = "InsertEnter",
-    config = function()
-      require("better_escape").setup()
-    end,
-  },
-
-  {
     "christoomey/vim-tmux-navigator",
     lazy = false,
   },
   -- To make a plugin not be loaded
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   enabled = false
-  -- },
-  {'junegunn/fzf'},
-  {'junegunn/fzf.vim'},  -- to enable preview (optional)
+  { "NvChad/nvim-colorizer.lua" },
+  { 'junegunn/fzf' },
+  { 'junegunn/fzf.vim' },  -- to enable preview (optional)
   {
     'ojroques/nvim-lspfuzzy',
     lazy = false,
