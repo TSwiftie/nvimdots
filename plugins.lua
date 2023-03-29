@@ -72,7 +72,7 @@ local plugins = {
 
   {
     "glepnir/lspsaga.nvim",
-    event = "BufRead",
+    event = "LspAttach",
     config = function()
         require("lspsaga").setup({})
     end,
