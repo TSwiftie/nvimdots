@@ -4,14 +4,22 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = {"clangd" }
+local servers = { "clangd" }
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+  if lsp == 'clangd' then
+    local clangd_capabilities = capabilities
+    clangd_capabilities.offsetEncoding = { "utf-16" }
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      capabilities = clangd_capabilities,
+    }
+  else
+    lspconfig[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  end
 end
 
--- 
 -- lspconfig.pyright.setup { blabla}
