@@ -117,5 +117,25 @@ local plugins = {
       require("leap").add_default_mappings()
     end,
   },
+  {
+    "kevinhwang91/nvim-ufo",
+    keys = { "zR", "zM", "zr", "zm" },
+    dependencies = {
+      { "kevinhwang91/promise-async" },
+    },
+    config = function()
+      require "custom.configs.ufo"
+    end,
+  },
+  {
+    "folke/trouble.nvim",
+    event = "LspAttach",
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+    },
+    config = function()
+      require("trouble").setup {}
+    end,
+  },
 }
 return plugins
