@@ -33,5 +33,11 @@ M.undotree = {
   }
 }
 
+M.lazygit = {
+    n = {
+        ["<leader>lg"] = { "<cmd>LazyGit<CR>", "lazygit", opts = { silent = true, noremap = true } },
+    }
+}
+
 -- more keybinds!
 return M
