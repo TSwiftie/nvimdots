@@ -108,13 +108,6 @@ local plugins = {
     cmd = { "LazyGit" },
   },
   {
-    'gelguy/wilder.nvim',
-    event = "CmdlineEnter",
-    config = function()
-      require("configs.wilder")
-    end,
-  },
-  {
     "ggandor/leap.nvim",
     keys = { "s", "S" },
     dependencies = {
