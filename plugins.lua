@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -25,7 +25,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
@@ -45,36 +45,36 @@ local plugins = {
   },
   -- To make a plugin not be loaded
   { "NvChad/nvim-colorizer.lua" },
-  { 'junegunn/fzf' },
-  { 'junegunn/fzf.vim' },  -- to enable preview (optional)
+  { "junegunn/fzf" },
+  { "junegunn/fzf.vim" }, -- to enable preview (optional)
   {
-    'ojroques/nvim-lspfuzzy',
+    "ojroques/nvim-lspfuzzy",
     event = "LspAttach",
     dependencies = {
-      {'junegunn/fzf'},
-      {'junegunn/fzf.vim'},  -- to enable preview (optional)
+      { "junegunn/fzf" },
+      { "junegunn/fzf.vim" }, -- to enable preview (optional)
     },
-    config = function ()
+    config = function()
       require "custom.configs.lspfuzzy"
-    end
+    end,
   },
 
   {
     "glepnir/lspsaga.nvim",
     event = "LspAttach",
     config = function()
-        require("lspsaga").setup({})
+      require("lspsaga").setup {}
     end,
     dependencies = {
-      {"nvim-tree/nvim-web-devicons"},
+      { "nvim-tree/nvim-web-devicons" },
       --Please make sure you install markdown and markdown_inline parser
-      {"nvim-treesitter/nvim-treesitter"}
-    }
+      { "nvim-treesitter/nvim-treesitter" },
+    },
   },
   {
     "hrsh7th/vim-eft",
     keys = { ";", "f", "F", "t", "T" },
-    config = function ()
+    config = function()
       vim.cmd [[nmap ; <Plug>(eft-repeat)]]
       vim.cmd [[xmap ; <Plug>(eft-repeat)]]
       vim.cmd [[nmap f <Plug>(eft-f)]]
@@ -94,7 +94,7 @@ local plugins = {
   {
     "rhysd/accelerated-jk",
     keys = { "j", "k" },
-    config = function ()
+    config = function()
       vim.cmd [[nmap j <Plug>(accelerated_jk_gj)zz]]
       vim.cmd [[nmap k <Plug>(accelerated_jk_gk)zz]]
     end,
@@ -114,8 +114,8 @@ local plugins = {
       { "tpope/vim-repeat" },
     },
     config = function()
-      require('leap').add_default_mappings()
+      require("leap").add_default_mappings()
     end,
-  }
+  },
 }
 return plugins
