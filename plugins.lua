@@ -49,7 +49,7 @@ local plugins = {
   { 'junegunn/fzf.vim' },  -- to enable preview (optional)
   {
     'ojroques/nvim-lspfuzzy',
-    lazy = false,
+    event = "LspAttach",
     dependencies = {
       {'junegunn/fzf'},
       {'junegunn/fzf.vim'},  -- to enable preview (optional)
@@ -73,7 +73,7 @@ local plugins = {
   },
   {
     "hrsh7th/vim-eft",
-    lazy = false,
+    keys = { ";", "f", "F", "t", "T" },
     config = function ()
       vim.cmd [[nmap ; <Plug>(eft-repeat)]]
       vim.cmd [[xmap ; <Plug>(eft-repeat)]]
@@ -93,7 +93,7 @@ local plugins = {
   },
   {
     "rhysd/accelerated-jk",
-    lazy = false,
+    keys = { "j", "k" },
     config = function ()
       vim.cmd [[nmap j <Plug>(accelerated_jk_gj)zz]]
       vim.cmd [[nmap k <Plug>(accelerated_jk_gk)zz]]
@@ -101,11 +101,28 @@ local plugins = {
   },
   {
     "mbbill/undotree",
-    lazy = false,
+    cmd = { "UndotreeToggle" },
   },
   {
     "kdheepak/lazygit.nvim",
     cmd = { "LazyGit" },
+  },
+  {
+    'gelguy/wilder.nvim',
+    event = "CmdlineEnter",
+    config = function()
+      require("configs.wilder")
+    end,
+  },
+  {
+    "ggandor/leap.nvim",
+    keys = { "s", "S" },
+    dependencies = {
+      { "tpope/vim-repeat" },
+    },
+    config = function()
+      require('leap').add_default_mappings()
+    end,
   }
 }
 return plugins
