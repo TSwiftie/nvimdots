@@ -46,7 +46,7 @@ M.lspconfig = {
   v = {
     ["<leader>fm"] = {
       function()
-        vim.lsp.buf.range_formatting { async = true }
+        vim.lsp.buf.format { async = true }
       end,
       "lsp formatting",
     },
