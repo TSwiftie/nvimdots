@@ -41,7 +41,7 @@ local plugins = {
   -- Install a plugin
   {
     "christoomey/vim-tmux-navigator",
-    lazy = false,
+    keys = { "<C-h>", "<C-j>", "<C-K>", "<C-l>" },
   },
   -- To make a plugin not be loaded
   { "NvChad/nvim-colorizer.lua" },
