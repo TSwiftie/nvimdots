@@ -17,6 +17,9 @@ local sources = {
 
   -- cpp
   b.formatting.clang_format,
+
+  b.formatting.cmake_format,
+  b.diagnostics.cmake_lint,
 }
 
 null_ls.setup {
