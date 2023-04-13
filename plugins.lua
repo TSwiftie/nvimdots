@@ -95,8 +95,8 @@ local plugins = {
     "rhysd/accelerated-jk",
     keys = { "j", "k" },
     config = function()
-      vim.cmd [[nmap j <Plug>(accelerated_jk_gj)zz]]
-      vim.cmd [[nmap k <Plug>(accelerated_jk_gk)zz]]
+      vim.cmd [[nmap j <Plug>(accelerated_jk_gj)]]
+      vim.cmd [[nmap k <Plug>(accelerated_jk_gk)]]
     end,
   },
   {
@@ -115,6 +115,22 @@ local plugins = {
     },
     config = function()
       require("leap").add_default_mappings()
+      -- The below settings make Leap's highlighting closer to what you've been
+      -- used to in Lightspeed.
+      -- vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'Comment' }) -- or some grey
+      vim.api.nvim_set_hl(0, 'LeapMatch', {
+      -- For light themes, set to 'black' or similar.
+      fg = 'orange', bold = true, nocombine = true,
+      })
+      -- Of course, specify some nicer shades instead of the default "red" and "blue".
+      vim.api.nvim_set_hl(0, 'LeapLabelPrimary', {
+        fg = 'red', bold = true, nocombine = true,
+      })
+      vim.api.nvim_set_hl(0, 'LeapLabelSecondary', {
+        fg = 'blue', bold = true, nocombine = true,
+      })
+      -- Try it without this setting first, you might find you don't even miss it.
+      require('leap').opts.highlight_unlabeled_phase_one_targets = true
     end,
   },
   {
@@ -137,5 +153,34 @@ local plugins = {
       require("trouble").setup {}
     end,
   },
+  {
+    "ggandor/flit.nvim",
+    keys = { "f", "F", "t", "T" },
+    dependencies = {
+      { "ggandor/leap.nvim" },
+      { "tpope/vim-repeat" },
+    },
+    config = function()
+      require('flit').setup {
+        keys = { f = 'f', F = 'F', t = 't', T = 'T' },
+        -- A string like "nv", "nvo", "o", etc.
+        labeled_modes = "v",
+        multiline = true,
+        -- Like `leap`s similar argument (call-specific overrides).
+        -- E.g.: opts = { equivalence_classes = {} }
+        opts = {}
+      }
+    end,
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+  }
 }
 return plugins
