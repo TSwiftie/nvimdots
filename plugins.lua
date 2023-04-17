@@ -154,25 +154,6 @@ local plugins = {
     end,
   },
   {
-    "ggandor/flit.nvim",
-    keys = { "f", "F", "t", "T" },
-    dependencies = {
-      { "ggandor/leap.nvim" },
-      { "tpope/vim-repeat" },
-    },
-    config = function()
-      require('flit').setup {
-        keys = { f = 'f', F = 'F', t = 't', T = 'T' },
-        -- A string like "nv", "nvo", "o", etc.
-        labeled_modes = "v",
-        multiline = true,
-        -- Like `leap`s similar argument (call-specific overrides).
-        -- E.g.: opts = { equivalence_classes = {} }
-        opts = {}
-      }
-    end,
-  },
-  {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
