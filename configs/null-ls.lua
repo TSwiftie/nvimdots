@@ -20,6 +20,8 @@ local sources = {
 
   b.formatting.cmake_format,
   b.diagnostics.cmake_lint,
+
+  b.formatting.verible_verilog_format,
 }
 
 null_ls.setup {
