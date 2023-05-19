@@ -22,7 +22,7 @@ for _, lsp in ipairs(servers) do
 			  "--all-scopes-completion",
 			  "--completion-style=detailed",
 			  "--header-insertion-decorators",
-			  "--header-insertion=iwyu",
+			  "--header-insertion=never",
         "--limit-references=0",
         "--limit-results=0",
 		  },

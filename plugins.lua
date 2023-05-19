@@ -2,6 +2,10 @@ local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
+  {
+    "NvChad/nvterm",
+    enabled = false,
+  },
 
   -- Override plugin definition options
 
