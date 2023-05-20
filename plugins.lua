@@ -112,26 +112,6 @@ local plugins = {
     cmd = { "LazyGit" },
   },
   {
-    "kevinhwang91/nvim-ufo",
-    keys = { "zR", "zM", "zr", "zm" },
-    dependencies = {
-      { "kevinhwang91/promise-async" },
-    },
-    config = function()
-      require "custom.configs.ufo"
-    end,
-  },
-  {
-    "folke/trouble.nvim",
-    event = "LspAttach",
-    dependencies = {
-      { "nvim-tree/nvim-web-devicons" },
-    },
-    config = function()
-      require("trouble").setup {}
-    end,
-  },
-  {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
@@ -140,6 +120,14 @@ local plugins = {
             -- Configuration here, or leave empty to use defaults
         })
     end
+  },
+  {
+    "junegunn/vim-easy-align",
+    keys = { "ga" },
+    config = function()
+      vim.cmd [[xmap ga <Plug>(EasyAlign)]]
+      vim.cmd [[nmap ga <Plug>(EasyAlign)]]
+    end,
   }
 }
 return plugins

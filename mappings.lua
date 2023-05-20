@@ -62,42 +62,4 @@ M.lspconfig = {
   },
 }
 
-M.ufo = {
-  n = {
-    ["zR"] = {
-      function()
-        require("ufo").openAllFolds()
-      end,
-      "openAllFolds",
-    },
-    ["zM"] = {
-      function()
-        require("ufo").closeAllFolds()
-      end,
-      "closeAllFolds",
-    },
-    ["zr"] = {
-      function()
-        require("ufo").openFoldsExceptKinds()
-      end,
-      "openFoldsExceptKinds",
-    },
-    ["zm"] = {
-      function()
-        require("ufo").closeFoldsWith()
-      end,
-      "closeFoldsWith",
-    },
-  },
-}
-
-M.trouble = {
-  n = {
-    ["<leader>xx"] = { "<cmd>TroubleToggle<cr>", "TroubleToggle", opts = { silent = true, noremap = true } },
-    ["<leader>xw"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", opts = { silent = true, noremap = true } },
-    ["<leader>xd"] = { "<cmd>TroubleToggle document_diagnostics<cr>", opts = { silent = true, noremap = true } },
-  },
-}
-
--- more keybinds!
 return M
