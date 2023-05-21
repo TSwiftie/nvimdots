@@ -29,7 +29,6 @@ M.mason = {
 -- git support in nvimtree
 M.nvimtree = {
   view = {
-    hide_root_folder = false,
     adaptive_size = false,
   },
   git = {
@@ -37,6 +36,7 @@ M.nvimtree = {
     ignore = false,
   },
   renderer = {
+    root_folder_label = ":~:s?$?/..?",
     highlight_git = true,
     icons = {
       show = {
