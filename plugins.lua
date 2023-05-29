@@ -62,7 +62,9 @@ local plugins = {
       require "custom.configs.lspfuzzy"
     end,
   },
-
+  { "p00f/clangd_extensions.nvim",
+    event = "LspAttach",
+  },
   {
     "glepnir/lspsaga.nvim",
     event = "LspAttach",
